@@ -1,0 +1,13 @@
+body {
+  margin: 20px;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.Mybutton {
+
+	background-color: lightblue;
+	border-style: dotted;   
+
+
+}
