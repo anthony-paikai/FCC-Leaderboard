@@ -5,12 +5,13 @@ function Legend(props){
 	const {isRecent, handleClick} = props;
 	return( 
 		<div className="Legend">
-			<button className={isRecent && "active"}  onClick={() => handleClick() }>
-				
-				Sort by Past 30 days! 
-				
+			<button className={isAlphabet && "active"}  onClick={() => handleClick(isAlphabet) }>	
+				Sort by Alphabet 			
 			</button>
-			<button className={!isRecent && "active"} onClick={() => handleClick() }>
+			<button className={isRecent&& "active"} onClick={() => handleClick(isRecent) }>
+				Sort by Past 30 days!
+			</button>
+			<button className={isAlltime&& "active"} onClick={() => handleClick(isAlltime) }>
 	
 				Sort by All-time!
 			
