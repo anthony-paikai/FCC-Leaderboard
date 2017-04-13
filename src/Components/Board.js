@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import '../style/App.css';
 import CamperRow from './CamperRow';
 import Legend from './Legend';
 

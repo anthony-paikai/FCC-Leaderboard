@@ -1,5 +1,4 @@
 import React from 'react';
-import '../style/App.css';
 
 function CamperRow(props){
 	const {camper} = props;

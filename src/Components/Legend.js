@@ -1,5 +1,4 @@
 import React from 'react';
-import '../style/App.css';
 
 function Legend(props){
 	const {isRecent, isAlphabet, isAlltime, handleClick, sortByUser} = props;
