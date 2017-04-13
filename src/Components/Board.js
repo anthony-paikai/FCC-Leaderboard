@@ -6,22 +6,28 @@ class Board extends Component {
 
 	constructor() {
 		super();
-		this.state = { items: [] };
+		this.state = { recent: [], alltime: [] };
 	}
 
 	componentDidMount() {
 		fetch('http://fcctop100.herokuapp.com/api/fccusers/top/recent')
 			.then(result => result.json())
-			.then(items => this.setState({items}))
+			.then(recent => this.setState({recent}))
+			.catch(err => console.log(err))
+
+		fetch('http://fcctop100.herokuapp.com/api/fccusers/top/alltime')
+			.then(result => result.json())
+			.then(alltime => this.setState({alltime}))
 			.catch(err => console.log(err))
 	}
 
 	render() {
-		const itemArray = this.state.items.map(item => <CamperRow key={item.lastUpdate} item={item} />) 
+		const camperRows = this.state.recent.map(item => <CamperRow key={item.lastUpdate} camper={item} />) 
 		return (
-			<div className="Board">The Leaderboard{this.props.name}
+			<div className="Board">
+				<h1>The Leaderboard{this.props.name}</h1>
 				<ul>
-					{itemArray}
+					{camperRows}
 				</ul>
 			</div>
 		);

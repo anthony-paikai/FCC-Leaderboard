@@ -22,3 +22,42 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.Board{
+  margin-top: 20px;
+  background-color: lightblue;
+  border-style: dotted;   
+
+}
+
+.App-footer{
+  background-color: #262;
+  height: 40px;
+  width: 100%;
+  color: white;
+  bottom: 0px;
+
+}
+
+.CamperRow{
+  border-style: solid;
+}
+
+.item img{
+  width:80px;
+  height: auto;
+}
+
+.item{
+  text-align: left;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
