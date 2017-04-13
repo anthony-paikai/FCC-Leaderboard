@@ -7,8 +7,11 @@ class Board extends Component {
 
 	constructor() {
 		super();
-		this.state = { recent: [], alltime: [] , isRecent: true};
+		this.state = { recent: [], alltime: [] , isRecent: true,
+					   isAlphabet: false, isAlltime: false, choice: "recent"};
 		this.handleClick = this.handleClick.bind(this);
+		this.handleChoice = this.handleChoice.bind(this);
+		console.log(this);
 	}
 
 	componentDidMount() {
@@ -23,26 +26,30 @@ class Board extends Component {
 			.catch(err => console.log(err))
 	}
 
-	handleClick(){
-		this.setState({isRecent: !this.state.isRecent});
-		console.log("switching recent");
+	handleClick(e){
+		//this.setState({isRecent: !this.state.isRecent});
+		this.setState({choice: e.target.id});
 	}
+
+	handleChoice(){
+		if(this.state.choice === "recent"){
+			return this.state.recent.map(item => <CamperRow key={item.lastUpdate} camper={item} />);
+		}else if(this.state.choice === "alltime"){
+			return this.state.alltime.map(item => <CamperRow key={item.lastUpdate} camper={item} />);
+		}
+	}
+
 
 	render() {
 		const {isRecent} = this.state;
-		let camperRows = [];
-		if(this.state.isRecent){
-			 camperRows = this.state.recent.map(item => <CamperRow key={item.lastUpdate} camper={item} />) 
-		}else{
-			 camperRows = this.state.alltime.map(item => <CamperRow key={item.lastUpdate} camper={item} />)
-		}
+		let camperRows = this.handleChoice();
 		return (
 			<div className="Board">
 				<h1>The Leaderboard</h1>
 				<Legend isRecent={isRecent} handleClick={this.handleClick}/>
-				<ul>
+				<ol>
 					{camperRows}
-				</ul>
+				</ol>
 			</div>
 		);
 	}
