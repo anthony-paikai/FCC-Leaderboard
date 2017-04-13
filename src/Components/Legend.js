@@ -2,10 +2,10 @@ import React from 'react';
 import '../style/App.css';
 
 function Legend(props){
-	const {isRecent, isAlphabet, isAlltime, handleClick} = props;
+	const {isRecent, isAlphabet, isAlltime, handleClick, sortByUser} = props;
 	return( 
 		<div className="Legend">
-			<button className={isAlphabet && "active"}  id="alphabet" onClick={(e) => handleClick(e) }>	
+			<button className={isAlphabet && "active"}  id="alphabet" onClick={() => sortByUser() }>	
 				Sort by Alphabet! 			
 			</button>
 			<button className={isRecent && "active"} id="recent" onClick={(e) => handleClick(e) }>

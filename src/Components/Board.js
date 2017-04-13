@@ -7,11 +7,9 @@ class Board extends Component {
 
 	constructor() {
 		super();
-		this.state = { recent: [], alltime: [] , isRecent: true,
-					   isAlphabet: false, isAlltime: false, choice: "recent"};
+		this.state = { sortedUser: [], recent: [], alltime: [], choice: "recent"};
 		this.handleClick = this.handleClick.bind(this);
-		this.handleChoice = this.handleChoice.bind(this);
-		console.log(this);
+		this.sortByUser = this.sortByUser.bind(this);
 	}
 
 	componentDidMount() {
@@ -27,26 +25,30 @@ class Board extends Component {
 	}
 
 	handleClick(e){
-		//this.setState({isRecent: !this.state.isRecent});
 		this.setState({choice: e.target.id});
 	}
 
-	handleChoice(){
-		if(this.state.choice === "recent"){
-			return this.state.recent.map(item => <CamperRow key={item.lastUpdate} camper={item} />);
-		}else if(this.state.choice === "alltime"){
-			return this.state.alltime.map(item => <CamperRow key={item.lastUpdate} camper={item} />);
-		}
+	sortByUser(){
+		var sortUsers = this.state[this.state.choice];
+		var sort = sortUsers.slice(0).sort(function compare(a,b) {
+			if(a.username < b.username)
+				return -1;
+			if(a.username > b.username)
+				return 1;
+			return 0;
+			});
+		this.setState({sortedUser: sort });
+		this.setState({choice: "sortedUser"});
 	}
 
-
 	render() {
-		const {isRecent} = this.state;
-		let camperRows = this.handleChoice();
+		
+		let camperRows = this.state[this.state.choice].map(item => <CamperRow key={item.lastUpdate} camper={item} />);
+		
 		return (
 			<div className="Board">
 				<h1>The Leaderboard</h1>
-				<Legend isRecent={isRecent} handleClick={this.handleClick}/>
+				<Legend handleClick={this.handleClick} sortByUser={this.sortByUser} />
 				<ol>
 					{camperRows}
 				</ol>
