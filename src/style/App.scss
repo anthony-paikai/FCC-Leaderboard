@@ -17,14 +17,14 @@
   font-size: large;
 }
 
-.Board{
+.Board {
   margin-top: 20px;
   background-color: lightblue;
   border-style: dotted;   
 
 }
 
-.App-footer{
+.App-footer {
   background-color: #262;
   height: 40px;
   width: 100%;
@@ -33,17 +33,54 @@
 
 }
 
-.CamperRow{
+.CamperRow {
   border-style: solid;
 }
 
-.item img{
-  width:80px;
-  height: auto;
+
+
+.item {
+  text-align: left;
+  
+  
+  img {
+    width:80px;
+    height: auto;
+    border-radius: 50%;
+  }
+  #text {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    padding-left: 100px;
+    height: 10px;
+
+  }
 }
 
-.item{
-  text-align: left;
+li {
+  background:lightgrey;
+  font-size:25px;
+  border: groove;
+  list-style-position: inside;
+}
+li:nth-Child(odd){background: gray}
+
+.Legend{
+  button {
+    border: solid;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+  //#alphabet{background-color: #4CAF50; /* Green */} <---- why not here?
+}
+  #alphabet{background-color: #4CAF50;}
+  #recent{background-color: #008CBA;}
+  #alltime{background-color: #f44336;}
 }
 
 

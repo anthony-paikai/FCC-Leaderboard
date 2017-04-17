@@ -5,7 +5,7 @@ function CamperRow(props){
 	const {img, username, recent, alltime} = camper;
 	return( 
 		<li className="item">
-			 <img src={img} alt="profile_pic"/> | {username} | {recent} | {alltime}
+			<img src={img} alt="profile_pic"/> <span id="text">| {username} | {recent} | {alltime}</span>
 		</li>
 	);
 }
