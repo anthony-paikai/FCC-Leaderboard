@@ -1,14 +1,22 @@
 import React, {Component} from 'react';
 import CamperRow from './CamperRow';
 import Legend from './Legend';
+import SearchBar from './SearchBar';
 
 class Board extends Component {
 
 	constructor() {
 		super();
-		this.state = { sortedUser: [], recent: [], alltime: [], choice: "recent"};
+		this.state = { sortedUser: [], 
+					   recent: [], 
+					   alltime: [], 
+					   choice: "recent",
+					   searchValue: ""
+					 };
+
 		this.handleClick = this.handleClick.bind(this);
 		this.sortByUser = this.sortByUser.bind(this);
+		this.handleSearch = this.handleSearch.bind(this);
 	}
 
 	componentDidMount() {
@@ -23,11 +31,15 @@ class Board extends Component {
 			.catch(err => console.log(err))
 	}
 
-	handleClick(e){
+	handleClick(e) {
 		this.setState({choice: e.target.id});
 	}
 
-	sortByUser(){
+	handleSearch(searchedUsers) {
+		this.setState({searchValue: searchedUsers});
+	}
+
+	sortByUser() { 
 		var sortUsers = this.state[this.state.choice];
 		var sort = sortUsers.slice(0).sort(function compare(a,b) {
 			if(a.username < b.username)
@@ -42,12 +54,14 @@ class Board extends Component {
 
 	render() {
 		
-		let camperRows = this.state[this.state.choice].map(item => <CamperRow key={item.lastUpdate} camper={item} />);
+		let camperRows = this.state[this.state.choice].map(item => <CamperRow key={item.lastUpdate} camper={item} searchValue={this.state.searchValue}/>);
 		
 		return (
 			<div className="Board">
-				<h1>The Leaderboard</h1>
+				<h1>The Leaderboard </h1>
+				<h3>Sorted by {this.state.choice}</h3>
 				<Legend handleClick={this.handleClick} sortByUser={this.sortByUser} />
+				<SearchBar searchValue={this.state.searchValue} handleSearch={this.handleSearch} />
 				<ol>
 					{camperRows}
 				</ol>
