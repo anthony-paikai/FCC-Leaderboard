@@ -3,11 +3,11 @@ import React from 'react';
 function SearchBar(props) {
 	const {searchValue, handleSearch} = props;
 	return (
-		<form>
+		<form className="SearchBox">
 			<input type="text" 
 				   placeholder="Search for user..." 
 				   value={searchValue}
-				   onChange={(e) => {handleSearch(e.target.value)}}
+				   onChange={handleSearch}
 
 			 />
 			

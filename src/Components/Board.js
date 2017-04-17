@@ -35,8 +35,8 @@ class Board extends Component {
 		this.setState({choice: e.target.id});
 	}
 
-	handleSearch(searchedUsers) {
-		this.setState({searchValue: searchedUsers});
+	handleSearch(e) {
+		this.setState({searchValue: e.target.value});
 	}
 
 	sortByUser() { 
@@ -52,6 +52,7 @@ class Board extends Component {
 		this.setState({choice: "sortedUser"});
 	}
 
+
 	render() {
 		
 		let camperRows = this.state[this.state.choice].map(item => <CamperRow key={item.lastUpdate} camper={item} searchValue={this.state.searchValue}/>);
@@ -62,9 +63,20 @@ class Board extends Component {
 				<h3>Sorted by {this.state.choice}</h3>
 				<Legend handleClick={this.handleClick} sortByUser={this.sortByUser} />
 				<SearchBar searchValue={this.state.searchValue} handleSearch={this.handleSearch} />
-				<ol>
+				<table className="ScoreTable">
+					<thead className="TableHead">
+						<tr>
+							<th/>
+							<th>USERNAME</th>
+							<th>RECENT SCORE</th>
+							<th>ALL-TIME SCORE</th>
+						</tr>
+					</thead>
+					<tbody>
 					{camperRows}
-				</ol>
+					</tbody>
+					
+				</table>
 			</div>
 		);
 	}

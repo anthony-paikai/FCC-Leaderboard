@@ -33,10 +33,6 @@
 
 }
 
-.CamperRow {
-  border-style: solid;
-}
-
 
 
 .item {
@@ -59,7 +55,7 @@
 }
 
 li {
-  background:lightgrey;
+  background: #424242;
   font-size:25px;
   border: ridge;
   list-style-position: inside;
@@ -67,6 +63,7 @@ li {
 li:nth-Child(odd){background: gray}
 
 .Legend{
+  padding-bottom: 20px;
   button {
     border: solid;
     color: white;
@@ -81,6 +78,35 @@ li:nth-Child(odd){background: gray}
   #alphabet{background-color: #4CAF50;}
   #recent{background-color: #008CBA;}
   #alltime{background-color: #f44336;}
+}
+
+.ScoreTable{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid;
+
+  tr:nth-Child(even) {
+    background-color: #424242;
+  }
+  tr:nth-Child(odd) {
+    background-color: gray
+  }
+  .TableHead{
+    font-size: 30px;
+    font-family: Impact;
+  }
+
+  .item{
+    text-align: center;
+    font-family: Gill Sans MT, sans-serif;
+    font-size: 25px;
+
+  }
+}
+
+.SearchBox {
+  padding-bottom: 20px;
 }
 
 
