@@ -19,7 +19,7 @@
 
 .Board {
   margin-top: 20px;
-  background-color: lightblue;
+  background-color: #CFE4E4;
   border-style: dotted;   
 
 }
@@ -54,13 +54,6 @@
   }
 }
 
-li {
-  background: #424242;
-  font-size:25px;
-  border: ridge;
-  list-style-position: inside;
-}
-li:nth-Child(odd){background: gray}
 
 .Legend{
   padding-bottom: 20px;
@@ -87,10 +80,10 @@ li:nth-Child(odd){background: gray}
   border: solid;
 
   tr:nth-Child(even) {
-    background-color: #424242;
+    background-color: #428181;
   }
   tr:nth-Child(odd) {
-    background-color: gray
+    background-color: #226666;
   }
   .TableHead{
     font-size: 30px;
