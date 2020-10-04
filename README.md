@@ -1,13 +1,10 @@
-FCC Project - Camper Leaderboard
-Made with React
+## FCC LEADER BOARD(Free Code Camp Leaderboard)
 
+FCC Leaderboard was an old project from FreeCodeCamp powered by react to visualize the list of Top 100 FreeCodeCamp users based on the brownie points, in the last 30 days. It used API end points to achieve this.
 
-Todo: implement hooks
+As of now, this project is deprecated and the API endpoints no longer work.
 
-Outdated.. will update
+## Todo: implement hooks, refactor, add tests
 
-
-Todo: refactor, add tests
-
-Roadmap: TBD
+## Roadmap: TBD
 
